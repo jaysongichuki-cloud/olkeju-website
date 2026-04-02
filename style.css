@@ -537,120 +537,43 @@ nav {
 
 }
 
-/* ================= IPHONE / SMALL SCREEN FIXES ================= */
+/* ================= IPHONE HERO & SLIDER TWEAKS ================= */
 @supports (-webkit-touch-callout: none) {
 
-  /* Hero image fix */
-  .hero {
-    background-size: contain !important;   /* prevent zoom-in on iPhone */
-    background-position: center center !important;
-  }
-
-  /* Reception slider images */
-  .reception-slider .slide img {
-    object-fit: contain !important;        /* avoid cropping */
-    height: auto !important;               /* allow natural height */
-  }
-
-  /* Room images */
-  .room-image img {
-    object-fit: contain !important;
-    height: auto !important;
-  }
-
-  /* Breakfast gallery */
-  .breakfast-gallery img {
-    object-fit: contain !important;
-    height: auto !important;
-  }
-
-  /* Hero-box and other text containers stay centered */
+  /* Hero section tweak */
   .hero-box {
-    width: 90% !important;
-    padding: 1.5rem !important;
+    padding: 1.5rem 2rem !important; /* slightly smaller padding for smaller screens */
   }
 
-  /* Optional: prevent horizontal scroll */
-  body, html {
-    overflow-x: hidden !important;
+  .hero-box h1 {
+    font-size: 2rem !important;      /* scale down title */
+    line-height: 1.2 !important;     /* tighter spacing */
   }
 
-}
-
-/* ================= IPHONE / MOBILE FIXES ================= */
-@media screen and (max-width: 768px) and (orientation: portrait) {
-
-  /* HERO IMAGE FIX */
-  .hero {
-    height: auto !important;           /* let it grow naturally */
-    min-height: 60vh;                  /* keeps hero tall enough */
-    background-size: cover !important; /* cover but maintain proportions */
-    background-position: center center !important; /* center the image */
-    padding-top: 80px;                 /* account for fixed header */
-  }
-
-  .hero-box {
-    margin-top: 2rem;                  /* push content down slightly */
-    padding: 1.5rem 2rem;              /* responsive padding */
-  }
-
-  /* RECEPTION SLIDER */
+  /* Reception slider tweak */
   .reception-slider {
-    display: flex;
-    overflow-x: auto;
-    gap: 1rem;
-    scroll-snap-type: x mandatory;
-    padding-bottom: 1rem;
-  }
-
-  .reception-slider::-webkit-scrollbar {
-    display: none;
+    display: flex !important;
+    overflow-x: auto !important;
+    gap: 0.8rem !important;
+    scroll-snap-type: x mandatory !important;
+    padding-bottom: 0.5rem !important;
   }
 
   .reception-slider .slide {
-    min-width: 250px;
-    height: auto !important;
-    flex: 0 0 auto;
-    scroll-snap-align: start;
-    border-radius: 12px;
-    overflow: hidden;
+    min-width: 220px !important;      /* smaller cards for iPhone */
+    height: 150px !important;
+    flex: 0 0 auto !important;
+    scroll-snap-align: start !important;
+    border-radius: 12px !important;
+    overflow: hidden !important;
   }
 
+  /* Center slide images vertically */
   .reception-slider .slide img {
-    width: 100%;
-    height: 180px;
-    object-fit: cover;
-  }
-
-  /* ROOM & BREAKFAST IMAGES */
-  .room-image img,
-  .breakfast-gallery img {
-    height: auto !important;   /* prevent cropping */
-    max-height: 250px;
-    object-fit: contain;       /* prevents zooming */
-  }
-
-  /* BOOKING FORM & SELECT FIXES */
-  .booking-form {
-    width: 95%;
-    padding: 1.5rem;
-  }
-
-  .booking-form input,
-  .booking-form select,
-  .booking-form button {
-    font-size: 0.95rem;
-    padding: 0.7rem;
-  }
-
-  .form-group select {
-    font-size: 1rem;       /* easier to tap on mobile */
-    max-width: 100%;       /* prevents overflow */
-    box-sizing: border-box;
-  }
-
-  .select-group::after {
-    display: none;         /* hide extra pseudo arrow */
+    object-fit: cover !important;
+    object-position: center !important;
+    width: 100% !important;
+    height: 100% !important;
   }
 
 }
