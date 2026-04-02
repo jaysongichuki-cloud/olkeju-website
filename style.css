@@ -523,17 +523,5 @@ nav {
   }
 }
 
-@media screen and (max-width: 768px) {
 
-  .reception-gallery img,
-  .room-image img,
-  .breakfast-gallery img {
-    
-    height: auto !important;   /* 🔥 stop forced cropping */
-    max-height: 250px;         /* keeps things neat */
-    object-fit: contain;       /* 🔥 prevents zooming */
-    
-  }
-
-}
 
