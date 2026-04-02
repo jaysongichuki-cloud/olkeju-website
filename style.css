@@ -536,3 +536,43 @@ nav {
   }
 
 }
+
+/* ================= IPHONE / SMALL SCREEN FIXES ================= */
+@supports (-webkit-touch-callout: none) {
+
+  /* Hero image fix */
+  .hero {
+    background-size: contain !important;   /* prevent zoom-in on iPhone */
+    background-position: center center !important;
+  }
+
+  /* Reception slider images */
+  .reception-slider .slide img {
+    object-fit: contain !important;        /* avoid cropping */
+    height: auto !important;               /* allow natural height */
+  }
+
+  /* Room images */
+  .room-image img {
+    object-fit: contain !important;
+    height: auto !important;
+  }
+
+  /* Breakfast gallery */
+  .breakfast-gallery img {
+    object-fit: contain !important;
+    height: auto !important;
+  }
+
+  /* Hero-box and other text containers stay centered */
+  .hero-box {
+    width: 90% !important;
+    padding: 1.5rem !important;
+  }
+
+  /* Optional: prevent horizontal scroll */
+  body, html {
+    overflow-x: hidden !important;
+  }
+
+}
