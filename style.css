@@ -537,43 +537,19 @@ nav {
 
 }
 
-/* ================= IPHONE HERO & SLIDER TWEAKS ================= */
-@supports (-webkit-touch-callout: none) {
+/* ================= RESPONSIVE IMAGE FIX ================= */
+img {
+  width: 100%;
+  height: auto;       /* maintain aspect ratio */
+  max-height: 400px;  /* optional: limits extremely tall images */
+  object-fit: cover;  /* fills the container without stretching */
+  border-radius: 12px; 
+}
 
-  /* Hero section tweak */
-  .hero-box {
-    padding: 1.5rem 2rem !important; /* slightly smaller padding for smaller screens */
+/* Special tweak for very small screens (phones) */
+@media screen and (max-width: 480px) {
+  img {
+    max-height: 250px;   /* avoids huge images on tiny screens */
+    object-fit: cover;   /* keeps it cropped naturally */
   }
-
-  .hero-box h1 {
-    font-size: 2rem !important;      /* scale down title */
-    line-height: 1.2 !important;     /* tighter spacing */
-  }
-
-  /* Reception slider tweak */
-  .reception-slider {
-    display: flex !important;
-    overflow-x: auto !important;
-    gap: 0.8rem !important;
-    scroll-snap-type: x mandatory !important;
-    padding-bottom: 0.5rem !important;
-  }
-
-  .reception-slider .slide {
-    min-width: 220px !important;      /* smaller cards for iPhone */
-    height: 150px !important;
-    flex: 0 0 auto !important;
-    scroll-snap-align: start !important;
-    border-radius: 12px !important;
-    overflow: hidden !important;
-  }
-
-  /* Center slide images vertically */
-  .reception-slider .slide img {
-    object-fit: cover !important;
-    object-position: center !important;
-    width: 100% !important;
-    height: 100% !important;
-  }
-
 }
