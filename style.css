@@ -10,10 +10,20 @@ body {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
+
   background:
-    radial-gradient(circle at top left, rgba(255,165,0,0.08), transparent 40%),
-    radial-gradient(circle at bottom right, rgba(255,140,0,0.08), transparent 40%),
-    #ffffff;
+    radial-gradient(circle at top left, rgba(255,165,0,0.10), transparent 40%),
+    radial-gradient(circle at bottom right, rgba(255,140,0,0.10), transparent 40%),
+    linear-gradient(120deg, #ffffff, #fff8f0, #ffffff);
+
+  background-size: 200% 200%;
+  animation: softMove 12s ease infinite;
+}
+
+@keyframes softMove {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
 }
 
 main {
@@ -111,6 +121,11 @@ nav {
   text-decoration: none;
   font-weight: 600;
   transition: 0.3s;
+  box-shadow: 0 5px 15px rgba(255,165,0,0.3);
+}
+
+.btn:hover {
+  box-shadow: 0 10px 25px rgba(255,165,0,0.5);
 }
 
 .nav-links .btn {
@@ -144,6 +159,12 @@ nav {
   text-align: center;
   backdrop-filter: blur(12px);
   border: 1px solid rgba(255,255,255,0.2);
+  animation: fadeUp 1s ease;
+}
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(25px); }
+  to { opacity: 1; transform: translateY(0); }
 }
 
 .hero-box h1 {
@@ -152,6 +173,32 @@ nav {
 
 .hero-box p {
   margin: 1rem 0;
+}
+
+.hero-box .tagline {
+  font-size: 1.2rem;
+  margin-top: 0.5rem;
+  color: #ddd;
+}
+
+.hero-box .sub-text {
+  font-size: 1rem;
+  margin: 1rem 0;
+  color: #ccc;
+  line-height: 1.6;
+}
+
+.hero-box .highlight {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: orange;
+  letter-spacing: 1px;
+}
+
+.hero-box .glow-text {
+  color: white;
+  text-shadow: 0 0 10px rgba(255,165,0,0.7);
+  margin-top: 1rem;
 }
 
 /* ================= SECTION TITLES ================= */
@@ -241,8 +288,8 @@ nav {
 }
 
 .room-card:hover {
-  transform: translateY(-10px);
-  box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+  transform: translateY(-10px) scale(1.02);
+  box-shadow: 0 25px 50px rgba(255,165,0,0.2);
 }
 
 .room-image {
@@ -496,47 +543,45 @@ nav {
 
 /* Ensure select arrow shows only once */
 .form-group select {
-  appearance: none;        /* Remove default browser arrow */
+  appearance: none;
   -webkit-appearance: none;
   -moz-appearance: none;
   background: #f9f9f9 url('data:image/svg+xml;utf8,<svg fill="gray" height="12" viewBox="0 0 24 24" width="12" xmlns="http://www.w3.org/2000/svg"><path d="M7 10l5 5 5-5z"/></svg>') no-repeat right 12px center;
   background-size: 12px;
-  padding-right: 2rem;    /* space for custom arrow */
+  padding-right: 2rem;
 }
 
 /* Custom arrow positioning */
 .select-group::after {
-  display: none;           /* hide the extra pseudo arrow */
+  display: none;
 }
 
 /* Ensure dropdown options stay inside the page */
 .form-group select {
   width: 100%;
-  max-width: 100%;         /* prevents select from overflowing */
+  max-width: 100%;
   box-sizing: border-box;
 }
 
 /* Optional: mobile touch fix */
 @media screen and (max-width: 768px) {
   .form-group select {
-    font-size: 1rem;       /* easier to tap on mobile */
+    font-size: 1rem;
   }
 }
-
 
 /* ================= RESPONSIVE IMAGE FIX ================= */
 img {
   width: 100%;
-  height: auto;       /* maintain aspect ratio */
-  max-height: 400px;  /* optional: limits extremely tall images */
-  object-fit: cover;  /* fills the container without stretching */
+  height: auto;
+  max-height: 400px;
+  object-fit: cover;
   border-radius: 12px; 
 }
 
-/* Special tweak for very small screens (phones) */
 @media screen and (max-width: 480px) {
   img {
-    max-height: 250px;   /* avoids huge images on tiny screens */
-    object-fit: cover;   /* keeps it cropped naturally */
+    max-height: 250px;
+    object-fit: cover;
   }
 }
